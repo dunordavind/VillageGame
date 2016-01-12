@@ -5,7 +5,7 @@
 #ifndef VILLAGEGAME_APPLICATION_H
 #define VILLAGEGAME_APPLICATION_H
 
-namespace Sus {
+namespace village {
     class Application {
     public:
         Application();

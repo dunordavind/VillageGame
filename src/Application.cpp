@@ -4,7 +4,7 @@
 
 #include "Application.h"
 
-namespace Sus {
+namespace village {
     Application::Application() {
 
     }
