@@ -10,7 +10,12 @@ namespace village {
     public:
         Application();
         ~Application();
+
+        int run();
+    private:
+        Application& operator=(const Application); //intentionally undefined
     };
+
 }
 
 
