@@ -13,6 +13,7 @@ namespace village {
 
         int run();
     private:
+        Application(const Application&);
         Application& operator=(const Application); //intentionally undefined
     };
 
