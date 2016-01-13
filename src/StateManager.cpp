@@ -8,4 +8,16 @@ namespace village {
     StateManager::StateManager() {
 
     }
+
+    void StateManager::addState(State *state) {
+
+    }
+
+    StateManager::~StateManager() {
+
+    }
+
+    State &StateManager::getState() {
+        return *states.back();
+    }
 }

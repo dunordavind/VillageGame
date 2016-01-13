@@ -13,9 +13,13 @@ namespace village {
     class StateManager {
     public:
         StateManager();
+        ~StateManager();
+        void addState(State *);
+        State& getState();
     private:
         std::vector<State *> states;
-
+        StateManager(const StateManager&);
+        StateManager& operator=(const StateManager&);
     };
 }
 
