@@ -12,4 +12,32 @@ namespace village {
     Application::~Application() {
 
     }
+
+    int Application::run() {
+        running = true;
+
+        // GameLoop if Running flag is still true
+        gameLoop();
+
+        return 0;
+    }
+
+    void Application::gameLoop() {
+        while(isRunning()) {
+            // process input
+
+            // update state
+
+            // draw
+
+            // display things
+
+            // cleanup
+        }
+    }
+
+    bool Application::isRunning() {
+        return running;
+    }
+
 }

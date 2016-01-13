@@ -12,9 +12,14 @@ namespace village {
         ~Application();
 
         int run();
+        bool isRunning();
     private:
+        bool running = false;
+        void gameLoop();
+
         Application(const Application&);
         Application& operator=(const Application); //intentionally undefined
+
     };
 
 }
