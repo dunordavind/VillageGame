@@ -10,6 +10,11 @@ set(SOURCE_FILES main.cpp src/Application.cpp include/Application.h
 add_executable(VillageGame ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+    set(SFML_ROOT "C:/Users/petr_v/Documents/Libraries/SFML-2.3.2")
+endif()
+
 find_package(SFML REQUIRED system window graphics network audio)
 if (SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
