@@ -10,7 +10,14 @@ namespace village {
     }
 
     void StateManager::addState(State *state) {
+        if(!states.empty()) {
+            states.back()->pause();
+        }
+        states.push_back(state);
+    }
 
+    void StateManager::registerApplication(village::Application *app) {
+        application = app;
     }
 
     StateManager::~StateManager() {
@@ -19,5 +26,9 @@ namespace village {
 
     State &StateManager::getState() {
         return *states.back();
+    }
+
+    bool StateManager::isEmpty() {
+        return states.empty();
     }
 }
