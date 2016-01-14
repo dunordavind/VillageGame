@@ -7,6 +7,7 @@
 
 #include <vector>
 #include "state.h"
+#include "Application.h"
 
 
 namespace village {
@@ -14,8 +15,14 @@ namespace village {
     public:
         StateManager();
         ~StateManager();
+
+        void registerApplication(village::Application *);
         void addState(State *);
         State& getState();
+        bool isEmpty();
+
+        village::Application *application;
+
     private:
         std::vector<State *> states;
         StateManager(const StateManager&);
