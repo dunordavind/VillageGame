@@ -5,7 +5,8 @@ include_directories(include)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp src/Application.cpp include/Application.h)
+set(SOURCE_FILES main.cpp src/Application.cpp include/Application.h
+        src/StateManager.cpp include/StateManager.h src/State.cpp include/State.h)
 add_executable(VillageGame ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
