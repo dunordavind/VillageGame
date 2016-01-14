@@ -7,7 +7,17 @@
 
 namespace village {
     class State {
+        // init
 
+        // cleanup
+
+        // pause
+
+        // resume
+
+        // handle events
+
+        //
     };
 }
 
