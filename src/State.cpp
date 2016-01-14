@@ -3,3 +3,8 @@
 //
 
 #include "State.h"
+#include "Application.h"
+
+namespace village {
+
+}

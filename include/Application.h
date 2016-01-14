@@ -5,6 +5,8 @@
 #ifndef VILLAGEGAME_APPLICATION_H
 #define VILLAGEGAME_APPLICATION_H
 
+#include "StateManager.h"
+
 namespace village {
     class Application {
     public:
@@ -13,6 +15,10 @@ namespace village {
 
         int run();
         bool isRunning();
+
+        void quit();
+
+        village::StateManager stateManager;
     private:
         bool running = false;
         void gameLoop();
@@ -21,7 +27,6 @@ namespace village {
         Application& operator=(const Application); //intentionally undefined
 
     };
-
 }
 
 

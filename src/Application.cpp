@@ -3,9 +3,11 @@
 //
 
 #include "Application.h"
+#include "SplashScreenState.h"
 
 namespace village {
-    Application::Application() {
+    Application::Application() :
+    stateManager() {
 
     }
 
@@ -16,6 +18,13 @@ namespace village {
     int Application::run() {
         running = true;
 
+        // Register app in the state manager
+        stateManager.registerApplication(this);
+
+        //init states
+        village::SplashScreenState splashScreenState(*this);
+        stateManager.addState(new village::SplashScreenState(*this));
+
         // GameLoop if Running flag is still true
         gameLoop();
 
@@ -24,11 +33,18 @@ namespace village {
 
     void Application::gameLoop() {
         while(isRunning()) {
+            if(stateManager.isEmpty()) {
+                quit();
+            }
+            State &currentState = stateManager.getState();
+
             // process input
+            currentState.handleEvents();
 
             // update state
 
             // draw
+            currentState.draw();
 
             // display things
 
@@ -40,4 +56,7 @@ namespace village {
         return running;
     }
 
+    void Application::quit() {
+        running = false;
+    }
 }

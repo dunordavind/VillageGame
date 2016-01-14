@@ -5,9 +5,18 @@
 #ifndef VILLAGEGAME_STATE_H
 #define VILLAGEGAME_STATE_H
 
+
+
 namespace village {
+    class Application;
+
     class State {
     public:
+
+        State(village::Application &application) { }
+
+        virtual ~State() {};
+
         // init
         virtual void init() = 0;
 
@@ -25,6 +34,8 @@ namespace village {
 
         //
         virtual void update() = 0;
+
+        virtual void draw() = 0;
     };
 }
 

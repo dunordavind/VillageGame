@@ -3,6 +3,7 @@
 //
 
 #include "StateManager.h"
+#include "Application.h"
 
 namespace village {
     StateManager::StateManager() {

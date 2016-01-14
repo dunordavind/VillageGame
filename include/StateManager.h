@@ -7,10 +7,11 @@
 
 #include <vector>
 #include "state.h"
-#include "Application.h"
 
 
 namespace village {
+    class Application; // forward declare application class
+
     class StateManager {
     public:
         StateManager();
