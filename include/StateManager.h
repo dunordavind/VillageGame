@@ -18,8 +18,11 @@ namespace village {
         ~StateManager();
 
         void registerApplication(village::Application *);
-        void addState(State *);
-        State& getState();
+        void addActiveState(State *);
+        void addInactiveState(State *);
+        void removeActiveState();
+        State &getActiveState();
+
         bool isEmpty();
 
         village::Application *application;

@@ -4,6 +4,7 @@
 
 #include "Application.h"
 #include "SplashScreenState.h"
+#include "MainMenuState.h"
 
 namespace village {
     Application::Application() :
@@ -22,8 +23,8 @@ namespace village {
         stateManager.registerApplication(this);
 
         //init states
-        village::SplashScreenState splashScreenState(*this);
-        stateManager.addState(new village::SplashScreenState(*this));
+        stateManager.addActiveState(new village::SplashScreenState(*this));
+        stateManager.addInactiveState(new village::MainMenuState(*this));
 
         // GameLoop if Running flag is still true
         gameLoop();
@@ -36,7 +37,7 @@ namespace village {
             if(stateManager.isEmpty()) {
                 quit();
             }
-            State &currentState = stateManager.getState();
+            State &currentState = stateManager.getActiveState();
 
             // process input
             currentState.handleEvents();

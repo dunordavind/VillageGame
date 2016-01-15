@@ -10,7 +10,8 @@ set(SOURCE_FILES main.cpp
         src/Application.cpp include/Application.h
         src/StateManager.cpp include/StateManager.h
         src/State.cpp include/State.h
-        src/states/SplashScreenState.cpp include/states/SplashScreenState.h)
+        src/states/SplashScreenState.cpp include/states/SplashScreenState.h
+        src/states/MainMenuState.cpp include/states/MainMenuState.h)
 add_executable(VillageGame ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")

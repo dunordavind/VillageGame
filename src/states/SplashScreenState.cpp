@@ -3,7 +3,6 @@
 //
 
 #include "SplashScreenState.h"
-#include <iostream>
 
 namespace village {
     SplashScreenState::SplashScreenState(Application &application) :

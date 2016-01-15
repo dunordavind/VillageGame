@@ -9,7 +9,7 @@
 #include <State.h>
 
 namespace village {
-    class SplashScreenState : public village::State {
+    class SplashScreenState : public State {
     public:
         SplashScreenState(village::Application &);
 
