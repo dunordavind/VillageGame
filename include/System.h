@@ -20,7 +20,7 @@ namespace village {
         System(const systemIdType systemId, Application &application);
         virtual ~System();
 
-        const systemIdType getId() const;
+        const systemIdType getSystemId() const;
         const entityIdType addEntity(Entity *entity);
         bool hasEntity(const entityIdType entityId) const;
         void dropEntity(const entityIdType entityId);
@@ -38,7 +38,7 @@ namespace village {
         virtual void init(Entity *entity) = 0;
         virtual void cleanup(Entity *entity) = 0;
     private:
-        const systemIdType id;
+        const systemIdType systemId;
         std::deque<Entity *>::iterator eraseEntity(std::deque<Entity *>::iterator entityIterator);
     };
 }

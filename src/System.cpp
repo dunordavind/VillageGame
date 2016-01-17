@@ -9,17 +9,17 @@ namespace village {
 
 
     System::System(const systemIdType systemId, Application &application) :
-    id(systemId),
+    systemId(systemId),
     application(application) {
 
     }
 
-    const systemIdType System::getId() const {
-        return id;
+    const systemIdType System::getSystemId() const {
+        return systemId;
     }
 
     System::~System() {
-    //    dropAllEntities();
+        dropAllEntities();
     }
 
     const entityIdType System::addEntity(Entity *entity) {
@@ -45,5 +45,73 @@ namespace village {
             throw "Null entity pointer provided"; //change to log class
         }
         return result;
+    }
+
+    bool System::hasEntity(const entityIdType entityId) const {
+        bool result = false;
+
+        std::map<const Uint32, std::deque<Entity *>>::const_iterator it;
+        it = entities.begin();
+
+        while(it != entities.end() && !result) {
+            std::deque<Entity *>::const_iterator it2 = it->second.begin();
+            while(it2 != it->second.end()) {
+                if(entityId == (*it2)->getEntityId()) {
+                    result = true;
+                    break;
+                }
+
+                it2++;
+            }
+            it++;
+        }
+
+        return result;
+    }
+
+    void System::dropEntity(const entityIdType entityId) {
+        bool result = false;
+
+        std::map<const Uint32, std::deque<Entity *>>::iterator it;
+        it = entities.begin();
+
+        while(it != entities.end() && !result) {
+            std::deque<Entity *>::iterator it2 = it->second.begin();
+            while(it2 != it->second.end()) {
+                if(entityId == (*it2)->getEntityId()) {
+                    it2 = eraseEntity(it2);
+                    result = true;
+                    break;
+                }
+
+                it2++;
+            }
+            it++;
+        }
+    }
+
+    std::deque<Entity *>::iterator System::eraseEntity(std::deque<Entity *>::iterator entityIterator) {
+        std::deque<Entity *>::iterator result;
+        Entity *targetEntity = (*entityIterator);
+        result = entities[targetEntity->getZOrder()].erase(entityIterator);
+        cleanup(targetEntity);
+
+        if(targetEntity->hasSystem(getSystemId())) {
+            targetEntity->dropSystem(getSystemId());
+        }
+        return result;
+    }
+
+    void System::dropAllEntities() {
+        std::map<const Uint32, std::deque<Entity *>>::iterator it;
+        it = entities.begin();
+
+        while(it != entities.end()) {
+            std::deque<Entity *>::iterator it2 = it->second.begin();
+            while(it2 != it->second.end()) {
+                it2 = eraseEntity(it2);
+            }
+            it++;
+        }
     }
 }

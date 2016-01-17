@@ -16,7 +16,7 @@ namespace village {
         Entity(Uint32 zOrder = 0);
         virtual ~Entity();
 
-//        const entityIdType getEntityId() const;
+        const entityIdType getEntityId() const;
         static entityIdType nextAvailableId();
         const Uint32 getZOrder() const;
         void setZOrder(const Uint32 order);
@@ -33,6 +33,7 @@ namespace village {
         entityIdType entityId;
         static entityIdType nextId;
         Uint32 zOrder;
+        void eraseSystem(std::map<const systemIdType, System *>::iterator it);
     };
 }
 
