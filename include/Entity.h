@@ -5,9 +5,12 @@
 #ifndef VILLAGEGAME_ENTITY_H
 #define VILLAGEGAME_ENTITY_H
 
+#include "EntityTypes.h"
+
 namespace village {
     class Entity {
-
+    private:
+         entityIdType entityId;
     };
 }
 
