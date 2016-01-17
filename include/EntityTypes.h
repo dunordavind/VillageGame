@@ -9,6 +9,7 @@
 
 namespace village {
     typedef Uint32 entityIdType;
+    typedef Uint32 systemIdType;
 }
 
 #endif //VILLAGEGAME_ENTITYTYPES_H
