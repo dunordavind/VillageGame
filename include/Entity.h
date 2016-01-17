@@ -5,10 +5,12 @@
 #ifndef VILLAGEGAME_ENTITY_H
 #define VILLAGEGAME_ENTITY_H
 
+#include <map>
 #include "EntityTypes.h"
-#include "System.h"
 
 namespace village {
+    class System;
+
     class Entity {
     public:
         Entity(Uint32 zOrder = 0);
@@ -22,11 +24,11 @@ namespace village {
         virtual void destroy() = 0;
 
         void addSystem(System *system);
-        bool hasSystem(const systemIdType systemID) const;
-        void dropSystem(const systemIdType systemID);
+        bool hasSystem(const systemIdType systemId) const;
+        void dropSystem(const systemIdType systemId);
     protected:
+        std::map<const systemIdType, System *> systems;
         void dropAllSystems();
-
     private:
         entityIdType entityId;
         static entityIdType nextId;

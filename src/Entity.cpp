@@ -3,6 +3,7 @@
 //
 
 #include "Entity.h"
+#include "System.h"
 
 namespace village {
 
@@ -40,4 +41,17 @@ namespace village {
 //    }
 
 
+    void Entity::addSystem(System *system) {
+        if(systems.find(system->getId()) == systems.end()) {
+            systems[system->getId()] = system;
+        }
+    }
+
+    bool Entity::hasSystem(const systemIdType systemId) const {
+        bool result = false;
+        if(systems.find(systemId) != systems.end()) {
+            result = true;
+        }
+        return result;
+    }
 }
