@@ -10,8 +10,12 @@
 namespace village {
     class Application {
     public:
-        Application();
-        ~Application();
+        // constants
+        static const unsigned int DEFAULT_VIDEO_WIDTH = 800;
+        static const unsigned int DEFAULT_VIDEO_HEIGHT = 600;
+        static const unsigned int DEFAULT_VIDEO_BPP = 32;
+
+
 
         int run();
         bool isRunning();
@@ -19,6 +23,9 @@ namespace village {
         void quit();
 
         village::StateManager stateManager;
+
+        Application();
+        ~Application();
     private:
         bool running = false;
         void gameLoop();
