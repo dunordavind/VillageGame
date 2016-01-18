@@ -32,6 +32,9 @@ namespace village {
         stateManager.addActiveState(new village::MainMenuState(*this));
         stateManager.addActiveState(new village::SplashScreenState(*this));
 
+        //init renderer
+        initRenderer();
+
         // GameLoop if Running flag is still true
         gameLoop();
 
@@ -66,5 +69,13 @@ namespace village {
 
     void Application::quit() {
         running = false;
+    }
+
+    void Application::initRenderer() {
+        // implement all the options from the config,
+        // needs config first
+        // only default window creation for now
+
+        window.create(videoMode, title);
     }
 }

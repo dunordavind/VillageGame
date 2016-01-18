@@ -38,6 +38,7 @@ namespace village {
         float updateRate;
         bool running;
         void gameLoop();
+        void initRenderer();
 
         Application(const Application&);
         Application& operator=(const Application); //intentionally undefined
