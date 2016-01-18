@@ -21,6 +21,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     set(SFML_STATIC_LIBRARIES ON)
 endif()
 
+
 find_package(SFML 2 REQUIRED graphics window network audio system)
 if (SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
