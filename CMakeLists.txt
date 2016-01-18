@@ -18,9 +18,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     set(SFML_ROOT "C:/Users/petr_v/Documents/Libraries/Build")
+    set(SFML_STATIC_LIBRARIES ON)
 endif()
 
-set(SFML_STATIC_LIBRARIES ON)
 find_package(SFML 2 REQUIRED graphics window network audio system)
 if (SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
