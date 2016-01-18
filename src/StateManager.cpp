@@ -12,6 +12,10 @@ namespace village {
 
     }
 
+    StateManager::~StateManager() {
+
+    }
+
     void StateManager::addActiveState(State *state) {
         if(!states.empty()) {
             states.back()->pause();
@@ -45,9 +49,7 @@ namespace village {
         application = app;
     }
 
-    StateManager::~StateManager() {
 
-    }
 
     State &StateManager::getActiveState() {
         return *states.back();

@@ -23,4 +23,8 @@ namespace village {
     void MainMenuState::init() {
         State::init();
     }
+
+    void MainMenuState::update() {
+
+    }
 }

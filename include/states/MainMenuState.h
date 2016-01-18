@@ -23,7 +23,7 @@ namespace village {
 
         virtual void handleEvents() {};
 
-        virtual void update() {};
+        virtual void update();
     protected:
         virtual void handleCleanup();
     };
