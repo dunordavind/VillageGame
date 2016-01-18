@@ -7,7 +7,9 @@
 #include "MainMenuState.h"
 
 namespace village {
-    Application::Application() :
+    Application::Application(std::string title) :
+    title(title),
+    videoMode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
     stateManager() {
 
     }

@@ -5,6 +5,8 @@
 #ifndef VILLAGEGAME_APPLICATION_H
 #define VILLAGEGAME_APPLICATION_H
 
+#include <string>
+#include <SFML/Window/VideoMode.hpp>
 #include "StateManager.h"
 
 namespace village {
@@ -15,7 +17,9 @@ namespace village {
         static const unsigned int DEFAULT_VIDEO_HEIGHT = 600;
         static const unsigned int DEFAULT_VIDEO_BPP = 32;
 
-
+        // variables
+        std::string title;
+        sf::VideoMode videoMode;
 
         int run();
         bool isRunning();
@@ -24,7 +28,7 @@ namespace village {
 
         village::StateManager stateManager;
 
-        Application();
+        Application(std::string);
         ~Application();
     private:
         bool running = false;

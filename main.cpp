@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     //initialize an application class
-    village::Application *a = new(std::nothrow) village::Application();
+    village::Application *a = new(std::nothrow) village::Application("Village title");
 
     int result = a->run();
 
