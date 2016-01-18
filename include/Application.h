@@ -7,6 +7,7 @@
 
 #include <string>
 #include <SFML/Window/VideoMode.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 #include "StateManager.h"
 
 namespace village {
@@ -20,6 +21,9 @@ namespace village {
         // variables
         std::string title;
         sf::VideoMode videoMode;
+        sf::RenderWindow window;
+        sf::ContextSettings contextSettings;
+
 
         int run();
         bool isRunning();
@@ -31,7 +35,8 @@ namespace village {
         Application(std::string);
         ~Application();
     private:
-        bool running = false;
+        float updateRate;
+        bool running;
         void gameLoop();
 
         Application(const Application&);

@@ -10,12 +10,16 @@ namespace village {
     Application::Application(std::string title) :
     title(title),
     videoMode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
+    window(),
+    contextSettings(),
+    updateRate((1000.0f / 20.0f)),
+    running(false),
     stateManager() {
 
     }
 
     Application::~Application() {
-
+        running = false;
     }
 
     int Application::run() {
