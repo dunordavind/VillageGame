@@ -54,12 +54,14 @@ namespace village {
             // update state
             currentState.update();
 
-            // draw
+            // draw stuff
             currentState.draw();
 
             // display things
+            window.display();
 
             // cleanup
+            // stateManager.cleanup - not implemented yet
         }
     }
 
