@@ -13,11 +13,11 @@ namespace village {
     public:
         SplashScreenState(village::Application &);
 
+        virtual ~SplashScreenState();
+
         virtual void draw();
 
-        virtual void init() {};
-
-        virtual void cleanup() {};
+        virtual void init();
 
         virtual void pause() {};
 
@@ -25,7 +25,13 @@ namespace village {
 
         virtual void handleEvents() {};
 
-        virtual void update() {};
+        virtual void update();
+
+    protected:
+        virtual void handleCleanup();
+
+    private:
+         float splashDelay;
 
     };
 }

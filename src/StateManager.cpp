@@ -2,6 +2,8 @@
 // Created by Petr Volkov on 13/01/2016.
 //
 
+#include <stddef.h>
+#include <iostream>
 #include "StateManager.h"
 #include "Application.h"
 
@@ -15,6 +17,7 @@ namespace village {
             states.back()->pause();
         }
         states.push_back(state);
+        state->init();
     }
 
     void StateManager::addInactiveState(State *state) {
@@ -29,9 +32,10 @@ namespace village {
             currentActiveState->cleanup();
             states.pop_back();
 
-            // maybe add a state to another stack (not implemented)
-
-            currentActiveState = 0;
+            // maybe add a state to another empty stack (not implemented)
+            // now it get's lost, but we cannot delete it here, because the method can be
+            // called from the state that needs to delete itself from StateManager
+            currentActiveState = nullptr ;
         } else {
             // quit with an error (not implemented)
         }

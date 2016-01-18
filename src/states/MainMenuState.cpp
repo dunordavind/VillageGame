@@ -15,4 +15,12 @@ namespace village {
     void MainMenuState::draw() {
         std::cout << "Drawing main menu " << std::endl;
     }
+
+    void MainMenuState::handleCleanup() {
+
+    }
+
+    void MainMenuState::init() {
+        State::init();
+    }
 }

@@ -12,7 +12,7 @@ int main() {
 
     //delete application class
     delete(a);
-    a = NULL;
+    a = nullptr;
 
     return 0;
 }

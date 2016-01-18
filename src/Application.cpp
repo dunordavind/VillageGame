@@ -23,8 +23,8 @@ namespace village {
         stateManager.registerApplication(this);
 
         //init states
+        stateManager.addActiveState(new village::MainMenuState(*this));
         stateManager.addActiveState(new village::SplashScreenState(*this));
-        stateManager.addInactiveState(new village::MainMenuState(*this));
 
         // GameLoop if Running flag is still true
         gameLoop();
@@ -43,6 +43,7 @@ namespace village {
             currentState.handleEvents();
 
             // update state
+            currentState.update();
 
             // draw
             currentState.draw();

@@ -6,22 +6,22 @@
 #define VILLAGEGAME_STATE_H
 
 
+#include <SFML/System/Clock.hpp>
 
 namespace village {
     class Application;
 
     class State {
     public:
+        State(village::Application &application);
 
-        State(village::Application &application) { }
-
-        virtual ~State() {};
+        virtual ~State();
 
         // init
-        virtual void init() = 0;
+        virtual void init();
 
         // cleanup
-        virtual void cleanup() = 0;
+        virtual void cleanup();
 
         // pause
         virtual void pause() = 0;
@@ -36,6 +36,25 @@ namespace village {
         virtual void update() = 0;
 
         virtual void draw() = 0;
+
+        float getElapsedTime() const;
+
+        bool isInitialized() const;
+
+    protected:
+        virtual void handleCleanup() = 0;
+
+        Application &application;
+
+    private:
+        sf::Clock elapsedClock;
+
+        float elapsedTime;
+
+        bool initialized;
+
+        bool markedForCleanup;
+
     };
 }
 
