@@ -7,6 +7,9 @@
 #include "MainMenuState.h"
 
 namespace village {
+
+    Application* Application::application = NULL; // refactor this global to singleton
+
     Application::Application(std::string title) :
     title(title),
     videoMode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
@@ -14,7 +17,8 @@ namespace village {
     contextSettings(),
     updateRate((1000.0f / 20.0f)),
     running(false),
-    stateManager() {
+    stateManager(),
+    assetManager() {
 
     }
 
@@ -79,5 +83,9 @@ namespace village {
         // only default window creation for now
 
         window.create(videoMode, title);
+    }
+
+    Application *Application::getApp() {
+        return application;
     }
 }
